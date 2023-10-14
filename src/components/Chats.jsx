@@ -20,21 +20,20 @@ function Charts() {
 
             {data.map(item => (
 
-       
+                   <div key={item.id}>
+            {item.type === 'video' ? <Circle /> : null}
                 <div className='  relative flex-col ml-2 ' key={item.id}
    
                     onMouseEnter={()=>setHovered(item)} onMouseLeave={ ()=>setHovered(null)}>
                     <div className='flex flex-col items-start'>
                       
-     
-                        {item.type === 'video' ? <RedCircle /> : null}
-                        <div className={`absolute  z--${item.views} overflow-hidden h-[${item.views}px] bottom-full mb-4 rounded-t-lg bg-gray-300 w-3`}> </div>
+                            <div className={`absolute  z--${item.views} overflow-hidden h-[${item.views}px] bottom-full mb-4 rounded-t-lg bg-gray-300 w-3`}> </div>
                     </div>
                     <div className={`absolute z--${item.likes} overflow-hidden h-[${item.likes}px] mb-4 bottom-full rounded-t-lg  bg-indigo-400 w-3`}> </div>
                     <div className={`absolute z--${item.comments} overflow-hidden h-[${item.comments}px] mb-4 bottom-full rounded-t-lg  bg-indigo-950 w-3`}>  </div>
                     <span className='mt-2'>{item.efficiency}</span>
                 </div>
-            ))}
+          </div>  ))}
 
 
         
